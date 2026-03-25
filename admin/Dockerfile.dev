@@ -5,6 +5,10 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci
 
+# Copy config files needed at runtime (tsconfig, next.config, postcss, etc.)
+# src/ is overridden by volume mount for hot reload
+COPY . .
+
 EXPOSE 3001
 
 CMD ["npm", "run", "dev", "--", "-p", "3001"]
