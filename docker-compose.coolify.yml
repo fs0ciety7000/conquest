@@ -65,9 +65,6 @@ services:
   # ─── WORKER ─────────────────────────────────────────────────
   worker:
     image: ${COOLIFY_REGISTRY:-ghcr.io}/space-conquest/backend:${TAG:-latest}
-    build:
-      context: .
-      dockerfile: backend/Dockerfile.prod
     restart: always
     command: ["/app/space-conquest", "--mode=worker"]
     environment:
