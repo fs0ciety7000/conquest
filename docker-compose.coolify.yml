@@ -96,24 +96,6 @@ services:
     depends_on:
       - backend
 
-  # ─── ADMIN PANEL ────────────────────────────────────────────
-  # Accessible sur admin.space-conquest.com avec auth applicative (pas Tailscale)
-  # Protégé par le login Next.js + JWT admin. Peut ajouter BasicAuth Traefik si besoin.
-  admin:
-    image: ${COOLIFY_REGISTRY:-ghcr.io}/space-conquest/admin:${TAG:-latest}
-    build:
-      context: ./admin
-      dockerfile: Dockerfile.prod
-    restart: always
-    environment:
-      NEXT_PUBLIC_ADMIN_API_URL: ${NEXT_PUBLIC_API_URL}
-    labels:
-      - "coolify.managed=true"
-      - "traefik.http.routers.sc-admin.rule=Host(`admin.${DOMAIN}`)"
-      - "traefik.http.services.sc-admin.loadbalancer.server.port=3001"
-    depends_on:
-      - backend
-
 volumes:
   pgdata_prod:
   redisdata_prod:
