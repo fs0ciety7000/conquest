@@ -1,0 +1,21 @@
+{
+  "id": "cruiser",
+  "name": "Cruiser",
+  "description": "A powerful mid-tier warship with excellent firepower and shielding. Cruisers are highly effective against light fighters due to their rapid-fire targeting systems.",
+  "cost": { "metal": 20000.0, "crystal": 7000.0, "deuterium": 2000.0, "energy": null },
+  "build_time": 7200,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 5 },
+    { "building_id": null, "technology_id": "impulse_drive", "level": 4 },
+    { "building_id": null, "technology_id": "ion_tech", "level": 2 }
+  ],
+  "stats": {
+    "structural_integrity": 27000,
+    "shield_power": 50,
+    "attack_power": 400,
+    "speed": 15000,
+    "cargo_capacity": 800,
+    "fuel_consumption": 300
+  },
+  "rapid_fire": { "light_fighter": 6, "heavy_fighter": 3, "rocket_launcher": 10 }
+}

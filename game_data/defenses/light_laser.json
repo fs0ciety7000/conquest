@@ -1,0 +1,13 @@
+{
+  "id": "light_laser",
+  "name": "Light Laser",
+  "description": "A fast-firing laser turret effective against lightly armored ships.",
+  "cost": { "metal": 1500.0, "crystal": 500.0, "deuterium": 0.0, "energy": null },
+  "build_time": 120,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 2 },
+    { "building_id": null, "technology_id": "laser_tech", "level": 3 }
+  ],
+  "stats": { "structural_integrity": 2000, "shield_power": 25, "attack_power": 100 },
+  "rapid_fire": null
+}

@@ -1,0 +1,124 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT id, empire_id, universe_id, name, galaxy, system, position,\n               diameter, temperature_min, temperature_max, image_id,\n               metal, crystal, deuterium, energy,\n               last_resource_update, is_homeworld, created_at\n        FROM planets WHERE empire_id = $1\n        ORDER BY is_homeworld DESC, created_at ASC\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "empire_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "universe_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "galaxy",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 5,
+        "name": "system",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 6,
+        "name": "position",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 7,
+        "name": "diameter",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 8,
+        "name": "temperature_min",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 9,
+        "name": "temperature_max",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 10,
+        "name": "image_id",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 11,
+        "name": "metal",
+        "type_info": "Float8"
+      },
+      {
+        "ordinal": 12,
+        "name": "crystal",
+        "type_info": "Float8"
+      },
+      {
+        "ordinal": 13,
+        "name": "deuterium",
+        "type_info": "Float8"
+      },
+      {
+        "ordinal": 14,
+        "name": "energy",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 15,
+        "name": "last_resource_update",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 16,
+        "name": "is_homeworld",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 17,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "9204e665346d2c9f93f2742097531b000539a84ff2e6f7df21a7defcd42eba18"
+}

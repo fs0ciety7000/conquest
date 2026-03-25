@@ -1,0 +1,13 @@
+{
+  "id": "small_shield_dome",
+  "name": "Small Shield Dome",
+  "description": "A defensive shield that protects the entire planet from incoming attacks. One per planet.",
+  "cost": { "metal": 10000.0, "crystal": 10000.0, "deuterium": 0.0, "energy": null },
+  "build_time": 3600,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 1 },
+    { "building_id": null, "technology_id": "shielding_tech", "level": 2 }
+  ],
+  "stats": { "structural_integrity": 20000, "shield_power": 2000, "attack_power": 1 },
+  "rapid_fire": null
+}

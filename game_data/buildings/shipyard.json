@@ -1,0 +1,17 @@
+{
+  "id": "shipyard",
+  "name": "Shipyard",
+  "description": "The heart of military production. Constructs warships, civilian vessels, and defense units. Higher levels unlock more advanced ship types and reduce construction time.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 400.0, "crystal": 200.0, "deuterium": 100.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 720, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "robotics_factory", "technology_id": null, "level": 2 }
+  ],
+  "production": null,
+  "storage": null,
+  "effects": { "ship_build_speed": 1.0 }
+}

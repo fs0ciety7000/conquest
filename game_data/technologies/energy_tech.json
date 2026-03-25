@@ -1,0 +1,15 @@
+{
+  "id": "energy_tech",
+  "name": "Energy Technology",
+  "description": "Fundamental research into energy generation and management. Required for advanced technologies and improves the efficiency of energy-intensive systems.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 0.0, "crystal": 800.0, "deuterium": 400.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 600, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 1 }
+  ],
+  "effects": { "energy_efficiency": 0.05 }
+}

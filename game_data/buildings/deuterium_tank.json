@@ -1,0 +1,15 @@
+{
+  "id": "deuterium_tank",
+  "name": "Deuterium Tank",
+  "description": "Pressurized containment tanks for storing liquid deuterium. Essential for maintaining fuel reserves for your fleet.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 1000.0, "crystal": 1000.0, "deuterium": 0.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 600, "factor": 2.0 },
+  "requirements": [],
+  "production": null,
+  "storage": { "deuterium": 10000.0 },
+  "effects": null
+}

@@ -1,0 +1,21 @@
+{
+  "id": "recycler",
+  "name": "Recycler",
+  "description": "Equipped with powerful tractor beams and processing units, recyclers harvest resources from debris fields left after naval battles.",
+  "cost": { "metal": 10000.0, "crystal": 6000.0, "deuterium": 2000.0, "energy": null },
+  "build_time": 5400,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 4 },
+    { "building_id": null, "technology_id": "combustion_drive", "level": 6 },
+    { "building_id": null, "technology_id": "shielding_tech", "level": 2 }
+  ],
+  "stats": {
+    "structural_integrity": 16000,
+    "shield_power": 10,
+    "attack_power": 1,
+    "speed": 2000,
+    "cargo_capacity": 20000,
+    "fuel_consumption": 300
+  },
+  "rapid_fire": null
+}

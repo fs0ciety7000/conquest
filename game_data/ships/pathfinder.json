@@ -1,0 +1,22 @@
+{
+  "id": "pathfinder",
+  "name": "Pathfinder",
+  "description": "A versatile exploration and combat vessel. Pathfinders excel at rapid deep-space expeditions, carry a decent cargo hold, and can hold their own in a fight.",
+  "cost": { "metal": 8000.0, "crystal": 15000.0, "deuterium": 8000.0, "energy": null },
+  "build_time": 10800,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 5 },
+    { "building_id": null, "technology_id": "hyperspace_drive", "level": 2 },
+    { "building_id": null, "technology_id": "hyperspace_tech", "level": 2 },
+    { "building_id": null, "technology_id": "shielding_tech", "level": 4 }
+  ],
+  "stats": {
+    "structural_integrity": 23000,
+    "shield_power": 100,
+    "attack_power": 150,
+    "speed": 12000,
+    "cargo_capacity": 10000,
+    "fuel_consumption": 300
+  },
+  "rapid_fire": { "espionage_probe": 5, "solar_satellite": 5, "cruiser": 3 }
+}

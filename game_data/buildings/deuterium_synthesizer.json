@@ -1,0 +1,17 @@
+{
+  "id": "deuterium_synthesizer",
+  "name": "Deuterium Synthesizer",
+  "description": "Extracts deuterium from the planet's oceans and atmosphere. Deuterium is the primary fuel for ships and fusion reactors.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 225.0, "crystal": 75.0, "deuterium": 0.0, "energy": null },
+    "factor": 1.5
+  },
+  "build_time": { "base_seconds": 180, "factor": 1.5 },
+  "requirements": [],
+  "production": {
+    "deuterium": { "base": 10.0, "factor": 1.1, "energy_factor": 1.1 }
+  },
+  "storage": null,
+  "effects": null
+}

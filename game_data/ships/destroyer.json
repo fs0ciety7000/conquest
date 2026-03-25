@@ -1,0 +1,22 @@
+{
+  "id": "destroyer",
+  "name": "Destroyer",
+  "description": "The most powerful conventional warship. Destroyers carry Gauss cannons capable of penetrating even the heaviest shields and are the natural predator of the battlecruiser.",
+  "cost": { "metal": 60000.0, "crystal": 50000.0, "deuterium": 15000.0, "energy": null },
+  "build_time": 36000,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 9 },
+    { "building_id": null, "technology_id": "hyperspace_drive", "level": 6 },
+    { "building_id": null, "technology_id": "hyperspace_tech", "level": 5 },
+    { "building_id": null, "technology_id": "armour_tech", "level": 5 }
+  ],
+  "stats": {
+    "structural_integrity": 110000,
+    "shield_power": 500,
+    "attack_power": 2000,
+    "speed": 5000,
+    "cargo_capacity": 2000,
+    "fuel_consumption": 1000
+  },
+  "rapid_fire": { "battlecruiser": 2, "espionage_probe": 5, "solar_satellite": 5 }
+}

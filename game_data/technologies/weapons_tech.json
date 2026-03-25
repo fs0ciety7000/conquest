@@ -1,0 +1,15 @@
+{
+  "id": "weapons_tech",
+  "name": "Weapons Technology",
+  "description": "Advances in weapons engineering improve the attack power of all ships and defense structures. Each level increases attack power by 10%.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 800.0, "crystal": 200.0, "deuterium": 0.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 600, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 4 }
+  ],
+  "effects": { "attack_bonus": 0.1 }
+}

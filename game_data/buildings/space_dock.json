@@ -1,0 +1,17 @@
+{
+  "id": "space_dock",
+  "name": "Space Dock",
+  "description": "An orbital repair facility capable of reconstructing damaged ships at reduced resource cost. Higher levels allow faster and more comprehensive repairs.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 200.0, "crystal": 0.0, "deuterium": 50.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 1800, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 2 }
+  ],
+  "production": null,
+  "storage": null,
+  "effects": { "ship_repair_speed": 1.0 }
+}

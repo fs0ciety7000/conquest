@@ -1,0 +1,18 @@
+{
+  "id": "terraformer",
+  "name": "Terraformer",
+  "description": "Reshapes the planet's surface to increase the number of available building slots. Each level adds 5 additional fields to the planet.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 0.0, "crystal": 50000.0, "deuterium": 100000.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 172800, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "nanite_factory", "technology_id": null, "level": 1 },
+    { "building_id": null, "technology_id": "energy_tech", "level": 12 }
+  ],
+  "production": null,
+  "storage": null,
+  "effects": { "planet_fields": 5.0 }
+}

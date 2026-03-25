@@ -1,0 +1,37 @@
+{
+  "id": "deathstar",
+  "name": "Death Star",
+  "description": "The most feared weapon in the galaxy. This massive moon-sized battle station mounts a Graviton Cannon capable of destroying entire fleets and devastating planetary defenses in a single salvo.",
+  "cost": { "metal": 5000000.0, "crystal": 4000000.0, "deuterium": 1000000.0, "energy": null },
+  "build_time": 604800,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 12 },
+    { "building_id": null, "technology_id": "hyperspace_drive", "level": 7 },
+    { "building_id": null, "technology_id": "hyperspace_tech", "level": 6 },
+    { "building_id": null, "technology_id": "graviton_tech", "level": 1 }
+  ],
+  "stats": {
+    "structural_integrity": 9000000,
+    "shield_power": 50000,
+    "attack_power": 200000,
+    "speed": 100,
+    "cargo_capacity": 1000000,
+    "fuel_consumption": 1
+  },
+  "rapid_fire": {
+    "small_cargo": 250,
+    "large_cargo": 250,
+    "light_fighter": 200,
+    "heavy_fighter": 100,
+    "cruiser": 33,
+    "battleship": 30,
+    "colony_ship": 250,
+    "recycler": 250,
+    "espionage_probe": 1250,
+    "solar_satellite": 1250,
+    "bomber": 25,
+    "destroyer": 5,
+    "battlecruiser": 15,
+    "reaper": 10
+  }
+}

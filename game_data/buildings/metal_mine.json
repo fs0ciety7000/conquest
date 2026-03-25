@@ -1,0 +1,17 @@
+{
+  "id": "metal_mine",
+  "name": "Metal Mine",
+  "description": "Extracts metal ore from the planet's crust. Metal is the most abundant resource and the primary building material for all structures and ships.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 60.0, "crystal": 15.0, "deuterium": 0.0, "energy": null },
+    "factor": 1.5
+  },
+  "build_time": { "base_seconds": 60, "factor": 1.5 },
+  "requirements": [],
+  "production": {
+    "metal": { "base": 30.0, "factor": 1.1, "energy_factor": 1.1 }
+  },
+  "storage": null,
+  "effects": null
+}

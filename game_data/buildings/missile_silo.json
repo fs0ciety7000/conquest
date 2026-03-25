@@ -1,0 +1,17 @@
+{
+  "id": "missile_silo",
+  "name": "Missile Silo",
+  "description": "Underground launch facilities for interplanetary and anti-ballistic missiles. Required to construct and store missile-based weaponry.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 20000.0, "crystal": 20000.0, "deuterium": 1000.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 3600, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 1 }
+  ],
+  "production": null,
+  "storage": null,
+  "effects": { "missile_capacity": 10.0 }
+}

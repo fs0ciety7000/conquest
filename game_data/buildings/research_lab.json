@@ -1,0 +1,15 @@
+{
+  "id": "research_lab",
+  "name": "Research Lab",
+  "description": "Facilitates scientific research across all disciplines. Required to research technologies and higher levels reduce research time significantly.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 200.0, "crystal": 400.0, "deuterium": 200.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 480, "factor": 2.0 },
+  "requirements": [],
+  "production": null,
+  "storage": null,
+  "effects": { "research_speed": 1.0 }
+}

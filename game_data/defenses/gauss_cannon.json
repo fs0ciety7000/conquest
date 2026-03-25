@@ -1,0 +1,15 @@
+{
+  "id": "gauss_cannon",
+  "name": "Gauss Cannon",
+  "description": "An electromagnetic accelerator that fires dense slugs at extreme velocity.",
+  "cost": { "metal": 20000.0, "crystal": 15000.0, "deuterium": 2000.0, "energy": null },
+  "build_time": 2400,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 6 },
+    { "building_id": null, "technology_id": "weapons_tech", "level": 3 },
+    { "building_id": null, "technology_id": "shielding_tech", "level": 1 },
+    { "building_id": null, "technology_id": "energy_tech", "level": 6 }
+  ],
+  "stats": { "structural_integrity": 35000, "shield_power": 200, "attack_power": 1100 },
+  "rapid_fire": null
+}

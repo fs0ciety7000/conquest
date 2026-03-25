@@ -1,0 +1,16 @@
+{
+  "id": "laser_tech",
+  "name": "Laser Technology",
+  "description": "Research into focused photon beam weapons. Required for laser-based defense structures and is a prerequisite for advanced energy weapon technologies.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 200.0, "crystal": 100.0, "deuterium": 0.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 300, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 1 },
+    { "building_id": null, "technology_id": "energy_tech", "level": 2 }
+  ],
+  "effects": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "armour_tech",
+  "name": "Armour Technology",
+  "description": "Research into advanced hull alloys and composite materials strengthens ship and defense structural integrity. Each level increases hull points by 10%.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 1000.0, "crystal": 0.0, "deuterium": 0.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 600, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 2 }
+  ],
+  "effects": { "armour_bonus": 0.1 }
+}

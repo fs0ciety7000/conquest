@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM research_queues WHERE empire_id = $1 AND technology_id = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "cb397f4eb290b9ea829b3cef317595219850d8b44e12a6957e71db7ba05cf47a"
+}

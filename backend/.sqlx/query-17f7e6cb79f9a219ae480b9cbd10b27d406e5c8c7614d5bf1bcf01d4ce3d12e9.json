@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO technologies (empire_id, technology_id, level)\n        VALUES ($1, $2, $3)\n        ON CONFLICT (empire_id, technology_id)\n        DO UPDATE SET level = EXCLUDED.level, updated_at = NOW()\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text",
+        "Int4"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "17f7e6cb79f9a219ae480b9cbd10b27d406e5c8c7614d5bf1bcf01d4ce3d12e9"
+}

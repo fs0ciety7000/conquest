@@ -1,0 +1,17 @@
+{
+  "id": "intergalactic_research",
+  "name": "Intergalactic Research Network",
+  "description": "Links research labs across planets, reducing research time significantly.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 240000.0, "crystal": 400000.0, "deuterium": 160000.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 172800, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 10 },
+    { "building_id": null, "technology_id": "computer_tech", "level": 8 },
+    { "building_id": null, "technology_id": "hyperspace_tech", "level": 8 }
+  ],
+  "effects": { "research_speed_bonus": 0.1 }
+}

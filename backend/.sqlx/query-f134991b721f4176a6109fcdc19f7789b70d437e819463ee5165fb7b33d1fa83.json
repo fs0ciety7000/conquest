@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT economy_speed, fleet_speed FROM universes WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "economy_speed",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 1,
+        "name": "fleet_speed",
+        "type_info": "Int2"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "f134991b721f4176a6109fcdc19f7789b70d437e819463ee5165fb7b33d1fa83"
+}

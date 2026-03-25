@@ -1,0 +1,22 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT level FROM buildings WHERE planet_id = $1 AND building_id = 'bldg_nanite_factory'",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "level",
+        "type_info": "Int4"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "1922b33c07ef700ac9ce6b7f1fd42c0c92b2dc3b09939fdd82e0acabb5742a96"
+}

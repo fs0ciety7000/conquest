@@ -1,0 +1,20 @@
+{
+  "id": "colony_ship",
+  "name": "Colony Ship",
+  "description": "A massive vessel carrying the personnel, equipment, and supplies needed to establish a new colony on an uninhabited planet.",
+  "cost": { "metal": 10000.0, "crystal": 20000.0, "deuterium": 10000.0, "energy": null },
+  "build_time": 18000,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 4 },
+    { "building_id": null, "technology_id": "impulse_drive", "level": 3 }
+  ],
+  "stats": {
+    "structural_integrity": 30000,
+    "shield_power": 100,
+    "attack_power": 50,
+    "speed": 2500,
+    "cargo_capacity": 7500,
+    "fuel_consumption": 1000
+  },
+  "rapid_fire": null
+}

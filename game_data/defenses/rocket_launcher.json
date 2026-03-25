@@ -1,0 +1,12 @@
+{
+  "id": "rocket_launcher",
+  "name": "Rocket Launcher",
+  "description": "A basic but effective defense against small attack craft.",
+  "cost": { "metal": 2000.0, "crystal": 0.0, "deuterium": 0.0, "energy": null },
+  "build_time": 60,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 1 }
+  ],
+  "stats": { "structural_integrity": 2000, "shield_power": 20, "attack_power": 80 },
+  "rapid_fire": null
+}

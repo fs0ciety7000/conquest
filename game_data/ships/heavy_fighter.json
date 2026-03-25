@@ -1,0 +1,21 @@
+{
+  "id": "heavy_fighter",
+  "name": "Heavy Fighter",
+  "description": "A more powerful combat vessel with improved shielding and firepower. Bridges the gap between light fighters and cruisers.",
+  "cost": { "metal": 6000.0, "crystal": 4000.0, "deuterium": 0.0, "energy": null },
+  "build_time": 2700,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 3 },
+    { "building_id": null, "technology_id": "armour_tech", "level": 2 },
+    { "building_id": null, "technology_id": "impulse_drive", "level": 2 }
+  ],
+  "stats": {
+    "structural_integrity": 10000,
+    "shield_power": 25,
+    "attack_power": 150,
+    "speed": 10000,
+    "cargo_capacity": 100,
+    "fuel_consumption": 75
+  },
+  "rapid_fire": null
+}

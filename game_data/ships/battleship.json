@@ -1,0 +1,20 @@
+{
+  "id": "battleship",
+  "name": "Battleship",
+  "description": "A heavy capital ship with devastating firepower. The cornerstone of any serious war fleet, battleships can survive sustained combat against multiple opponents.",
+  "cost": { "metal": 45000.0, "crystal": 15000.0, "deuterium": 0.0, "energy": null },
+  "build_time": 14400,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 7 },
+    { "building_id": null, "technology_id": "hyperspace_drive", "level": 4 }
+  ],
+  "stats": {
+    "structural_integrity": 60000,
+    "shield_power": 200,
+    "attack_power": 1000,
+    "speed": 10000,
+    "cargo_capacity": 1500,
+    "fuel_consumption": 500
+  },
+  "rapid_fire": { "espionage_probe": 5, "solar_satellite": 5 }
+}

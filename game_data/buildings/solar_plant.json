@@ -1,0 +1,17 @@
+{
+  "id": "solar_plant",
+  "name": "Solar Plant",
+  "description": "Converts solar energy into electrical power. Provides the base energy supply needed to run mines and other facilities.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 75.0, "crystal": 30.0, "deuterium": 0.0, "energy": null },
+    "factor": 1.5
+  },
+  "build_time": { "base_seconds": 90, "factor": 1.5 },
+  "requirements": [],
+  "production": {
+    "energy": { "base": 20.0, "factor": 1.1, "energy_factor": null }
+  },
+  "storage": null,
+  "effects": null
+}

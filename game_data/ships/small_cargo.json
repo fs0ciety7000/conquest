@@ -1,0 +1,20 @@
+{
+  "id": "small_cargo",
+  "name": "Small Cargo",
+  "description": "A fast, lightly armored transport vessel. Ideal for quick raids and moving small quantities of resources between colonies.",
+  "cost": { "metal": 2000.0, "crystal": 2000.0, "deuterium": 0.0, "energy": null },
+  "build_time": 900,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 2 },
+    { "building_id": null, "technology_id": "combustion_drive", "level": 2 }
+  ],
+  "stats": {
+    "structural_integrity": 4000,
+    "shield_power": 10,
+    "attack_power": 5,
+    "speed": 5000,
+    "cargo_capacity": 5000,
+    "fuel_consumption": 10
+  },
+  "rapid_fire": null
+}

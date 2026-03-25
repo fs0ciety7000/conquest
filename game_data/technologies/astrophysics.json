@@ -1,0 +1,17 @@
+{
+  "id": "astrophysics",
+  "name": "Astrophysics",
+  "description": "Advanced astrophysics knowledge allows colonization of additional planets.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 4000.0, "crystal": 8000.0, "deuterium": 4000.0, "energy": null },
+    "factor": 1.75
+  },
+  "research_time": { "base_seconds": 28800, "factor": 1.75 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 3 },
+    { "building_id": null, "technology_id": "espionage_tech", "level": 4 },
+    { "building_id": null, "technology_id": "impulse_drive", "level": 3 }
+  ],
+  "effects": { "max_planets": 1 }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "computer_tech",
+  "name": "Computer Technology",
+  "description": "Advances in computing power increase fleet coordination capabilities. Each level allows command of one additional fleet simultaneously.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 0.0, "crystal": 400.0, "deuterium": 600.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 600, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 1 }
+  ],
+  "effects": { "fleet_slots": 1.0 }
+}

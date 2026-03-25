@@ -1,0 +1,34 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        UPDATE event_queue\n        SET status = 'PROCESSING'\n        WHERE id IN (\n            SELECT id FROM event_queue\n            WHERE universe_id = $1\n              AND status = 'PENDING'\n              AND execution_time <= NOW()\n            ORDER BY execution_time\n            LIMIT 50\n            FOR UPDATE SKIP LOCKED\n        )\n        RETURNING id, event_type, payload\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "event_type",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "payload",
+        "type_info": "Jsonb"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "fc8174b936c996cbe4df6487a403b4940293246e2b66b24266ded37cedd7770d"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "alliance_depot",
+  "name": "Alliance Depot",
+  "description": "Stores and distributes deuterium to allied fleets in orbit. Friendly fleets can resupply here, extending their operational range.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 20000.0, "crystal": 40000.0, "deuterium": 0.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 7200, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 1 }
+  ],
+  "production": null,
+  "storage": null,
+  "effects": { "fleet_supply_range": 1.0 }
+}

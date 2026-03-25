@@ -1,0 +1,20 @@
+FROM rust:1.82-bookworm
+
+WORKDIR /app
+
+# Install cargo-watch for hot reload and sqlx-cli for migrations
+RUN cargo install cargo-watch
+RUN cargo install sqlx-cli --no-default-features --features postgres
+
+# Copy manifests first for dependency caching
+COPY Cargo.toml Cargo.lock* ./
+
+# Build dependencies in a dummy project to cache them
+RUN mkdir src && echo 'fn main() {}' > src/main.rs
+RUN cargo build 2>/dev/null || true
+RUN rm -rf src
+
+# Sources and game_data are mounted via Docker volumes
+EXPOSE 8080
+
+CMD ["cargo", "watch", "-x", "run -- --mode=api"]

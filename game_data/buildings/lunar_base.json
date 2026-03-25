@@ -1,0 +1,15 @@
+{
+  "id": "lunar_base",
+  "name": "Lunar Base",
+  "description": "Establishes a permanent habitation dome on the moon's surface. Required before any other moon structures can be built. Can only be constructed once.",
+  "max_level": 1,
+  "cost": {
+    "base": { "metal": 20000.0, "crystal": 40000.0, "deuterium": 20000.0, "energy": null },
+    "factor": 1.5
+  },
+  "build_time": { "base_seconds": 14400, "factor": 1.5 },
+  "requirements": [],
+  "production": null,
+  "storage": null,
+  "effects": { "moon_fields": 1.0 }
+}

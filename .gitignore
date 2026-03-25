@@ -1,0 +1,35 @@
+# Environnements
+.env.dev
+.env.prod
+.env.local
+*.env
+
+# Rust
+backend/target/
+backend/Cargo.lock
+
+# Node
+frontend/node_modules/
+frontend/.next/
+admin/node_modules/
+admin/.next/
+
+# Docker volumes
+pgdata/
+redisdata/
+
+# OS
+.DS_Store
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Monitoring data
+monitoring/grafana/data/
+monitoring/prometheus/data/
+
+# Backups
+backups/*.sql.gz

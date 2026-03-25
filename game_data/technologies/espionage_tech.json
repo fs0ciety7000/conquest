@@ -1,0 +1,15 @@
+{
+  "id": "espionage_tech",
+  "name": "Espionage Technology",
+  "description": "Advances in sensor arrays and data analysis allow for increasingly detailed intelligence reports on enemy planets. Each level reveals more information when spying.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 200.0, "crystal": 1000.0, "deuterium": 200.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 300, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 3 }
+  ],
+  "effects": { "spy_detail": 1.0 }
+}

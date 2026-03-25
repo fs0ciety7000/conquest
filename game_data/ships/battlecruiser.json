@@ -1,0 +1,30 @@
+{
+  "id": "battlecruiser",
+  "name": "Battlecruiser",
+  "description": "A highly specialized warship optimized for fleet engagements. Its Gauss cannons and interceptor missiles make it devastating against heavy warships and cruisers.",
+  "cost": { "metal": 30000.0, "crystal": 40000.0, "deuterium": 15000.0, "energy": null },
+  "build_time": 25200,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 8 },
+    { "building_id": null, "technology_id": "hyperspace_drive", "level": 5 },
+    { "building_id": null, "technology_id": "hyperspace_tech", "level": 5 },
+    { "building_id": null, "technology_id": "laser_tech", "level": 12 }
+  ],
+  "stats": {
+    "structural_integrity": 70000,
+    "shield_power": 400,
+    "attack_power": 1400,
+    "speed": 10000,
+    "cargo_capacity": 750,
+    "fuel_consumption": 250
+  },
+  "rapid_fire": {
+    "small_cargo": 3,
+    "large_cargo": 3,
+    "heavy_fighter": 4,
+    "cruiser": 4,
+    "battleship": 7,
+    "espionage_probe": 5,
+    "solar_satellite": 5
+  }
+}

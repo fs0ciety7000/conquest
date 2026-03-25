@@ -1,0 +1,22 @@
+{
+  "id": "reaper",
+  "name": "Reaper",
+  "description": "An advanced warship that surpasses even the destroyer in raw combat power. Reapers are equipped with next-generation hyperspace engines and can collect debris fields from battle.",
+  "cost": { "metal": 85000.0, "crystal": 55000.0, "deuterium": 20000.0, "energy": null },
+  "build_time": 43200,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 10 },
+    { "building_id": null, "technology_id": "hyperspace_drive", "level": 6 },
+    { "building_id": null, "technology_id": "hyperspace_tech", "level": 6 },
+    { "building_id": null, "technology_id": "shielding_tech", "level": 6 }
+  ],
+  "stats": {
+    "structural_integrity": 140000,
+    "shield_power": 700,
+    "attack_power": 2800,
+    "speed": 7000,
+    "cargo_capacity": 10000,
+    "fuel_consumption": 1100
+  },
+  "rapid_fire": { "battleship": 7, "bomber": 4, "destroyer": 3 }
+}

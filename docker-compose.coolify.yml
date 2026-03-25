@@ -1,0 +1,119 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# docker-compose.coolify.yml
+#
+# Deploy via Coolify : New Resource → Docker Compose → pointer sur ce fichier
+# Coolify gère automatiquement : Traefik, SSL Let's Encrypt, domaines, réseau
+#
+# Variables d'env à configurer dans l'UI Coolify (ou via .env dans le repo) :
+#   DB_NAME, DB_USER, DB_PASSWORD, DATABASE_URL, REDIS_PASSWORD, REDIS_URL,
+#   JWT_SECRET, GAME_DATA_PATH, DOMAIN, NEXT_PUBLIC_API_URL, NEXT_PUBLIC_WS_URL
+# ─────────────────────────────────────────────────────────────────────────────
+name: spaceconquest-prod
+
+services:
+
+  # ─── BASE DE DONNÉES ────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_DB:       ${DB_NAME}
+      POSTGRES_USER:     ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata_prod:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # ─── REDIS ──────────────────────────────────────────────────
+  redis:
+    image: valkey/valkey:7-alpine
+    restart: always
+    command: valkey-server --requirepass ${REDIS_PASSWORD} --save 60 1 --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redisdata_prod:/data
+    healthcheck:
+      test: ["CMD", "valkey-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      retries: 5
+
+  # ─── BACKEND API ────────────────────────────────────────────
+  backend:
+    image: ${COOLIFY_REGISTRY:-ghcr.io}/space-conquest/backend:${TAG:-latest}
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    restart: always
+    environment:
+      DATABASE_URL:    ${DATABASE_URL}
+      REDIS_URL:       ${REDIS_URL}
+      JWT_SECRET:      ${JWT_SECRET}
+      GAME_DATA_PATH:  ${GAME_DATA_PATH:-/app/game_data}
+      RUST_LOG:        info,sqlx=warn,tower_http=info
+    # Coolify détecte ce label pour configurer le domaine api.space-conquest.com
+    labels:
+      - "coolify.managed=true"
+      - "traefik.http.routers.sc-api.rule=Host(`api.${DOMAIN}`)"
+      - "traefik.http.services.sc-api.loadbalancer.server.port=8080"
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis:    { condition: service_healthy }
+
+  # ─── WORKER ─────────────────────────────────────────────────
+  worker:
+    image: ${COOLIFY_REGISTRY:-ghcr.io}/space-conquest/backend:${TAG:-latest}
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    restart: always
+    command: ["/app/space-conquest", "--mode=worker"]
+    environment:
+      DATABASE_URL:   ${DATABASE_URL}
+      REDIS_URL:      ${REDIS_URL}
+      GAME_DATA_PATH: ${GAME_DATA_PATH:-/app/game_data}
+      RUST_LOG:       info,sqlx=warn
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis:    { condition: service_healthy }
+
+  # ─── FRONTEND ───────────────────────────────────────────────
+  frontend:
+    image: ${COOLIFY_REGISTRY:-ghcr.io}/space-conquest/frontend:${TAG:-latest}
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_WS_URL:  ${NEXT_PUBLIC_WS_URL}
+    restart: always
+    labels:
+      - "coolify.managed=true"
+      - "traefik.http.routers.sc-frontend.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.services.sc-frontend.loadbalancer.server.port=3000"
+    depends_on:
+      - backend
+
+  # ─── ADMIN PANEL ────────────────────────────────────────────
+  # Accessible sur admin.space-conquest.com avec auth applicative (pas Tailscale)
+  # Protégé par le login Next.js + JWT admin. Peut ajouter BasicAuth Traefik si besoin.
+  admin:
+    image: ${COOLIFY_REGISTRY:-ghcr.io}/space-conquest/admin:${TAG:-latest}
+    build:
+      context: ./admin
+      dockerfile: Dockerfile.prod
+    restart: always
+    environment:
+      NEXT_PUBLIC_ADMIN_API_URL: ${NEXT_PUBLIC_API_URL}
+    labels:
+      - "coolify.managed=true"
+      - "traefik.http.routers.sc-admin.rule=Host(`admin.${DOMAIN}`)"
+      - "traefik.http.services.sc-admin.loadbalancer.server.port=3001"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata_prod:
+  redisdata_prod:

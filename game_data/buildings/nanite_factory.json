@@ -1,0 +1,18 @@
+{
+  "id": "nanite_factory",
+  "name": "Nanite Factory",
+  "description": "Produces self-replicating nanomachines that dramatically accelerate all construction processes. Each level halves construction time.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 1000000.0, "crystal": 500000.0, "deuterium": 100000.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 86400, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "robotics_factory", "technology_id": null, "level": 10 },
+    { "building_id": null, "technology_id": "computer_tech", "level": 10 }
+  ],
+  "production": null,
+  "storage": null,
+  "effects": { "nanite_build_speed": 2.0 }
+}

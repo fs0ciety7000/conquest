@@ -1,0 +1,21 @@
+{
+  "id": "espionage_probe",
+  "name": "Espionage Probe",
+  "description": "An ultrafast unmanned drone that gathers intelligence on enemy planets. Probes are nearly undetectable and travel at extreme speeds.",
+  "cost": { "metal": 0.0, "crystal": 1000.0, "deuterium": 0.0, "energy": null },
+  "build_time": 60,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 3 },
+    { "building_id": null, "technology_id": "combustion_drive", "level": 3 },
+    { "building_id": null, "technology_id": "espionage_tech", "level": 2 }
+  ],
+  "stats": {
+    "structural_integrity": 1000,
+    "shield_power": 0,
+    "attack_power": 0,
+    "speed": 100000000,
+    "cargo_capacity": 5,
+    "fuel_consumption": 1
+  },
+  "rapid_fire": null
+}

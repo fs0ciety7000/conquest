@@ -1,0 +1,143 @@
+name: spaceconquest-prod
+
+services:
+
+  # ─── BASE DE DONNÉES ────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    restart: always
+    env_file: .env.prod
+    environment:
+      POSTGRES_DB:       ${DB_NAME}
+      POSTGRES_USER:     ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata_prod:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  pgbouncer:
+    image: edoburu/pgbouncer:latest
+    restart: always
+    environment:
+      DB_USER:          ${DB_USER}
+      DB_PASSWORD:      ${DB_PASSWORD}
+      DB_HOST:          postgres
+      DB_NAME:          ${DB_NAME}
+      POOL_MODE:        transaction
+      MAX_CLIENT_CONN:  200
+      DEFAULT_POOL_SIZE: 25
+    depends_on:
+      postgres: { condition: service_healthy }
+
+  # ─── REDIS ──────────────────────────────────────────────────
+  redis:
+    image: valkey/valkey:7-alpine
+    restart: always
+    command: valkey-server --requirepass ${REDIS_PASSWORD} --save 60 1 --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redisdata_prod:/data
+    healthcheck:
+      test: ["CMD", "valkey-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      retries: 5
+
+  # ─── BACKEND API ────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    restart: always
+    env_file: .env.prod
+    environment:
+      DATABASE_URL: ${PGBOUNCER_URL}
+      REDIS_URL:    ${REDIS_URL}
+    depends_on:
+      pgbouncer: { condition: service_started }
+      redis:     { condition: service_healthy }
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`${API_DOMAIN}`)"
+      - "traefik.http.routers.api.tls.certresolver=letsencrypt"
+      - "traefik.http.services.api.loadbalancer.server.port=8080"
+
+  # ─── WORKER ─────────────────────────────────────────────────
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    restart: always
+    env_file: .env.prod
+    environment:
+      DATABASE_URL: ${PGBOUNCER_URL}
+      REDIS_URL:    ${REDIS_URL}
+    command: ["/app/space-conquest", "--mode=worker"]
+    depends_on:
+      pgbouncer: { condition: service_started }
+      redis:     { condition: service_healthy }
+
+  # ─── FRONTEND ───────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    restart: always
+    env_file: .env.prod
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
+
+  # ─── ADMIN ──────────────────────────────────────────────────
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile.prod
+    restart: always
+    env_file: .env.prod
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.admin.rule=Host(`${ADMIN_DOMAIN}`)"
+      - "traefik.http.routers.admin.tls.certresolver=letsencrypt"
+      - "traefik.http.services.admin.loadbalancer.server.port=3001"
+
+  # ─── MONITORING ─────────────────────────────────────────────
+  prometheus:
+    image: prom/prometheus:latest
+    restart: always
+    volumes:
+      - ./monitoring/prometheus.prod.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data_prod:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=${PROMETHEUS_RETENTION:-30d}'
+
+  grafana:
+    image: grafana/grafana:latest
+    restart: always
+    volumes:
+      - grafana_data_prod:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SERVER_ROOT_URL: https://grafana.${DOMAIN}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.${DOMAIN}`)"
+      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
+
+volumes:
+  pgdata_prod:
+  redisdata_prod:
+  prometheus_data_prod:
+  grafana_data_prod:
+
+networks:
+  default:
+    name: sc_prod_network

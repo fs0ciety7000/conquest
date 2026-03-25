@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM building_queues WHERE planet_id = $1 AND building_id = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "ebe20bfcf0b8ea794c0fe18dbf82e5f628943c77c6f137e44aa7a327e9ee0807"
+}

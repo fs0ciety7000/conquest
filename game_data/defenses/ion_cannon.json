@@ -1,0 +1,13 @@
+{
+  "id": "ion_cannon",
+  "name": "Ion Cannon",
+  "description": "Fires concentrated ion beams that are effective against shielded targets.",
+  "cost": { "metal": 5000.0, "crystal": 3000.0, "deuterium": 0.0, "energy": null },
+  "build_time": 1200,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 4 },
+    { "building_id": null, "technology_id": "ion_tech", "level": 4 }
+  ],
+  "stats": { "structural_integrity": 8000, "shield_power": 500, "attack_power": 150 },
+  "rapid_fire": null
+}

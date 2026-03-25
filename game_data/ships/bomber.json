@@ -1,0 +1,30 @@
+{
+  "id": "bomber",
+  "name": "Bomber",
+  "description": "A heavily armored assault craft designed specifically to destroy planetary defense installations. Carries plasma bombs that tear through defensive structures.",
+  "cost": { "metal": 50000.0, "crystal": 25000.0, "deuterium": 15000.0, "energy": null },
+  "build_time": 21600,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 8 },
+    { "building_id": null, "technology_id": "impulse_drive", "level": 6 },
+    { "building_id": null, "technology_id": "plasma_tech", "level": 5 }
+  ],
+  "stats": {
+    "structural_integrity": 75000,
+    "shield_power": 500,
+    "attack_power": 1000,
+    "speed": 4000,
+    "cargo_capacity": 500,
+    "fuel_consumption": 700
+  },
+  "rapid_fire": {
+    "rocket_launcher": 20,
+    "light_laser": 20,
+    "heavy_laser": 10,
+    "ion_cannon": 10,
+    "gauss_cannon": 5,
+    "plasma_turret": 5,
+    "small_shield_dome": 1,
+    "large_shield_dome": 1
+  }
+}

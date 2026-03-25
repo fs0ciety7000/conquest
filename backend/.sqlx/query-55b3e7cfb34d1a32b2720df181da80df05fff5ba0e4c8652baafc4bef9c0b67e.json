@@ -1,0 +1,17 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE planets SET metal = metal - $1, crystal = crystal - $2, deuterium = deuterium - $3 WHERE id = $4",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Float8",
+        "Float8",
+        "Float8",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "55b3e7cfb34d1a32b2720df181da80df05fff5ba0e4c8652baafc4bef9c0b67e"
+}

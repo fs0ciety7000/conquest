@@ -1,0 +1,15 @@
+{
+  "id": "graviton_tech",
+  "name": "Graviton Technology",
+  "description": "Mastery of gravitational forces enables construction of the ultimate weapon.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 0.0, "crystal": 0.0, "deuterium": 0.0, "energy": null },
+    "factor": 3.0
+  },
+  "research_time": { "base_seconds": 86400, "factor": 3.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 12 }
+  ],
+  "effects": {}
+}

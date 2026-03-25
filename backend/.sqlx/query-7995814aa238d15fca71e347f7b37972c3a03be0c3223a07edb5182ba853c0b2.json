@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO buildings (planet_id, building_id, level)\n        VALUES ($1, $2, $3)\n        ON CONFLICT (planet_id, building_id)\n        DO UPDATE SET level = EXCLUDED.level, updated_at = NOW()\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text",
+        "Int4"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "7995814aa238d15fca71e347f7b37972c3a03be0c3223a07edb5182ba853c0b2"
+}

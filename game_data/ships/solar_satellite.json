@@ -1,0 +1,19 @@
+{
+  "id": "solar_satellite",
+  "name": "Solar Satellite",
+  "description": "A large photovoltaic satellite in geostationary orbit. Generates clean energy that supplements planetary power plants, but is vulnerable to attack.",
+  "cost": { "metal": 0.0, "crystal": 2000.0, "deuterium": 500.0, "energy": null },
+  "build_time": 900,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 1 }
+  ],
+  "stats": {
+    "structural_integrity": 2000,
+    "shield_power": 1,
+    "attack_power": 1,
+    "speed": 0,
+    "cargo_capacity": 0,
+    "fuel_consumption": 0
+  },
+  "rapid_fire": null
+}

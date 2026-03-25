@@ -1,0 +1,20 @@
+{
+  "id": "large_cargo",
+  "name": "Large Cargo",
+  "description": "A massive bulk freighter capable of hauling enormous quantities of resources. Slower than small cargos but vastly superior carrying capacity.",
+  "cost": { "metal": 6000.0, "crystal": 6000.0, "deuterium": 0.0, "energy": null },
+  "build_time": 3600,
+  "requirements": [
+    { "building_id": "shipyard", "technology_id": null, "level": 4 },
+    { "building_id": null, "technology_id": "combustion_drive", "level": 6 }
+  ],
+  "stats": {
+    "structural_integrity": 12000,
+    "shield_power": 25,
+    "attack_power": 5,
+    "speed": 7500,
+    "cargo_capacity": 25000,
+    "fuel_consumption": 50
+  },
+  "rapid_fire": null
+}

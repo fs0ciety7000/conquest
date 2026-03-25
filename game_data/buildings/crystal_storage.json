@@ -1,0 +1,15 @@
+{
+  "id": "crystal_storage",
+  "name": "Crystal Storage",
+  "description": "Secure vaults for storing refined crystal. Higher levels provide increased capacity to protect your crystal reserves.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 1000.0, "crystal": 500.0, "deuterium": 0.0, "energy": null },
+    "factor": 2.0
+  },
+  "build_time": { "base_seconds": 600, "factor": 2.0 },
+  "requirements": [],
+  "production": null,
+  "storage": { "crystal": 10000.0 },
+  "effects": null
+}

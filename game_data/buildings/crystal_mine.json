@@ -1,0 +1,17 @@
+{
+  "id": "crystal_mine",
+  "name": "Crystal Mine",
+  "description": "Harvests crystal formations from the planet's surface. Crystal is used in electronics, advanced alloys, and energy systems.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 48.0, "crystal": 24.0, "deuterium": 0.0, "energy": null },
+    "factor": 1.6
+  },
+  "build_time": { "base_seconds": 90, "factor": 1.6 },
+  "requirements": [],
+  "production": {
+    "crystal": { "base": 20.0, "factor": 1.1, "energy_factor": 1.1 }
+  },
+  "storage": null,
+  "effects": null
+}

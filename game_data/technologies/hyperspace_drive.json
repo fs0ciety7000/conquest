@@ -1,0 +1,16 @@
+{
+  "id": "hyperspace_drive",
+  "name": "Hyperspace Drive",
+  "description": "Allows ships to travel through hyperspace, achieving speeds impossible with conventional drives. Each level increases the speed of hyperspace-equipped ships by 30%.",
+  "max_level": null,
+  "cost": {
+    "base": { "metal": 10000.0, "crystal": 20000.0, "deuterium": 6000.0, "energy": null },
+    "factor": 2.0
+  },
+  "research_time": { "base_seconds": 14400, "factor": 2.0 },
+  "requirements": [
+    { "building_id": "research_lab", "technology_id": null, "level": 7 },
+    { "building_id": null, "technology_id": "hyperspace_tech", "level": 3 }
+  ],
+  "effects": { "hyperspace_speed_bonus": 0.3 }
+}
