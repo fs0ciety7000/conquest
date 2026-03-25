@@ -35,7 +35,7 @@ setup: ## Premier lancement : copie .env, build, migrations
 		fi; \
 		sleep 1; \
 	done
-	$(DOCKER_DEV) run --rm -e DATABASE_URL=$${DATABASE_URL} backend sqlx migrate run
+	$(DOCKER_DEV) run --rm backend sqlx migrate run
 	$(DOCKER_DEV) up -d
 
 # ─── DEV ──────────────────────────────────────────────────────────────────────
