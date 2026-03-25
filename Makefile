@@ -22,11 +22,20 @@ help: ## Affiche l'aide
 # ─── SETUP INITIAL ────────────────────────────────────────────────────────────
 setup: ## Premier lancement : copie .env, build, migrations
 	@[ -f .env.dev ] || cp .env.dev.example .env.dev
-	$(DOCKER_DEV) up -d --build postgres redis
-	@echo "Attente que postgres soit prêt..."
-	@sleep 5
-	$(DOCKER_DEV) exec postgres sh -c 'until pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB; do sleep 1; done'
-	$(DOCKER_DEV) run --rm backend sqlx migrate run
+	$(DOCKER_DEV) up -d postgres redis
+	@echo "Attente que postgres soit prêt (max 60s)..."
+	@for i in $$(seq 1 60); do \
+		if $(DOCKER_DEV) exec postgres pg_isready -q 2>/dev/null; then \
+			echo "Postgres prêt."; break; \
+		fi; \
+		if [ "$$i" = "60" ]; then \
+			echo "ERREUR: Postgres n'a pas démarré. Logs:"; \
+			$(DOCKER_DEV) logs --tail 30 postgres; \
+			exit 1; \
+		fi; \
+		sleep 1; \
+	done
+	$(DOCKER_DEV) run --rm -e DATABASE_URL=$${DATABASE_URL} backend sqlx migrate run
 	$(DOCKER_DEV) up -d
 
 # ─── DEV ──────────────────────────────────────────────────────────────────────

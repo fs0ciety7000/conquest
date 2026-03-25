@@ -15,7 +15,7 @@ services:
       - "5432:5432"
     volumes:
       - pgdata_dev:/var/lib/postgresql/data
-      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro,Z
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 5s
@@ -49,8 +49,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./backend/src:/app/src
-      - ./game_data:/app/game_data
+      - ./backend/src:/app/src:Z
+      - ./game_data:/app/game_data:ro,Z
       - cargo_cache:/usr/local/cargo/registry
       - target_cache:/app/target
     depends_on:
@@ -69,8 +69,8 @@ services:
       DATABASE_URL: ${DATABASE_URL}
       REDIS_URL:    ${REDIS_URL}
     volumes:
-      - ./backend/src:/app/src
-      - ./game_data:/app/game_data
+      - ./backend/src:/app/src:Z
+      - ./game_data:/app/game_data:ro,Z
       - cargo_cache:/usr/local/cargo/registry
       - target_cache:/app/target
     depends_on:
@@ -89,8 +89,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
+      - ./frontend/src:/app/src:Z
+      - ./frontend/public:/app/public:ro,Z
       - /app/node_modules
       - /app/.next
     environment:
@@ -110,7 +110,7 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./admin/src:/app/src
+      - ./admin/src:/app/src:Z
       - /app/node_modules
     environment:
       PORT: "3001"
@@ -125,7 +125,7 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./monitoring/prometheus.dev.yml:/etc/prometheus/prometheus.yml:ro
+      - ./monitoring/prometheus.dev.yml:/etc/prometheus/prometheus.yml:ro,Z
       - prometheus_data_dev:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
