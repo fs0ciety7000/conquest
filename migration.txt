@@ -1,0 +1,21 @@
+Approche d'implémentation
+
+Créer MIGRATION_PLAN.md à la racine /home/user/conquest/
+Suivre le template project-manager-senior.md : sections Goal / MoSCoW / Step-by-Step / Acceptance Criteria
+Chaque étape doit référencer les fichiers concrets du codebase conquest (ex: backend/src/handlers/, frontend/src/app/(game)/)
+Inclure une section "Statut Actuel" par Epic basée sur l'audit du codebase
+Commit sur la branche claude/migrate-to-conquest-ccrXC et push
+
+Fichiers critiques à référencer dans le plan
+
+/home/user/conquest/backend/src/routes/router.rs — ajouter les nouvelles routes ici
+/home/user/conquest/backend/src/handlers/ — créer research.rs, fleet.rs, combat.rs, espionage.rs, market.rs, alliance.rs, messaging.rs
+/home/user/conquest/backend/src/services/ — créer research_service.rs, fleet_service.rs, combat_service.rs, etc.
+/home/user/conquest/backend/src/workers/event_processor.rs — ajouter handlers FLEET_ARRIVAL, COMBAT_RESOLVE, etc.
+/home/user/conquest/frontend/src/app/(game)/fleet/page.tsx — remplacer stub
+/home/user/conquest/frontend/src/app/(game)/galaxy/page.tsx — remplacer stub
+/home/user/conquest/frontend/src/lib/queries.ts — ajouter hooks fleet, research, market, alliance
+/home/user/conquest/frontend/src/lib/types.ts — ajouter Fleet, CombatReport, MarketOffer, Alliance types
+/home/user/conquest/game_data/ — tous les JSON déjà présents (buildings, ships, techs, defenses)
+/home/user/conquest/SPACE_CONQUEST_MASTER(1).md — référence design (formules, catalogue, états)
+/home/user/conquest/SPACE_CONQUEST_ADDENDUM_v1.2.md — admin, achievements, senate
